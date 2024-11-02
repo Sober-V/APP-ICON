@@ -11,9 +11,9 @@ class App extends Component {
             name: getUrlArgs('name') || '',
             country: getUrlArgs('country') || 'cn',
             entity: getUrlArgs('entity') || 'software',
-            limit: getUrlArgs('limit') || '12',
+            limit: getUrlArgs('limit') || '120',
             cut: getUrlArgs('cut') || '1',
-            resolution: getUrlArgs('resolution') || '512',
+            resolution: getUrlArgs('resolution') || '256',
             format: getUrlArgs('format') || 'png',
             results: [],
         };
@@ -55,7 +55,7 @@ class App extends Component {
         const { name, cut, resolution, format, results } = this.state;
         const entityMaps = [
             { key: 'entity', value: 'software', text: 'iOS' },
-            { key: 'entity', value: 'macSoftware', text: 'macOS' },
+            { key: 'entity', value: 'macSoftware', text: 'MAC' },
         ];
         const countryMaps = [
             { key: 'country', value: 'cn', text: '中/CN' },
@@ -73,9 +73,9 @@ class App extends Component {
             { key: 'format', value: 'webp', text: 'WebP' },
         ];
         const resolutionMaps = [
+            { key: 'resolution', value: '128', text: '128px' },
             { key: 'resolution', value: '256', text: '256px' },
             { key: 'resolution', value: '512', text: '512px' },
-            { key: 'resolution', value: '1024', text: '1024px' },
         ];
         return (
             <div className="app">
@@ -114,7 +114,7 @@ class App extends Component {
                 <main className="results">
                     {results.map((result) => (<Result key={result.trackId} data={result} cut={cut} resolution={resolution} format={format} />))}
                 </main>
-                <footer className="footer">Copyright © 2024 - <a className="footer-msg" href='https://github.com/YuKongA'>YuKongA</a></footer>
+                <footer className="footer-msg"><a href='https://vvvxi.com'>Visit 亿圣</a></footer>
             </div>
         );
     }
